@@ -16,38 +16,39 @@ Adapted form Treehouse FSJS Techdegree
 //Array of all quotes
 let quotes = [
   {
-    quote: "\"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.\"",
-    source: "\"Helen Keller\"",
+    quote: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+    source: "Helen Keller",
     year: 1891,
     tags: ["Beauty", "Emotion"]
   },
   {
-    quote: "\"Let us not seek the Republican answer or the Democratic answer, but the right answer. Let us not seek to fix the blame for the past. Let us accept our own responsibility for the future.\"",
+    quote: "Let us not seek the Republican answer or the Democratic answer, but the right answer. Let us not seek to fix the blame for the past. Let us accept our own responsibility for the future.\"",
     source: "John F. Kennedy",
     year: 1960,
     tags: ["Politics"]
   },
   {
-    quote: "\"It is during our darkest moments that we must focus to see the light.\"",
+    quote: "It is during our darkest moments that we must focus to see the light.",
     source: "Aristotle",
     tags: ["Motivation"]
   },
   {
-   quote: "\"One of the most beautiful qualities of true friendship is to understand and to be understood.\"",
+   quote: "One of the most beautiful qualities of true friendship is to understand and to be understood.",
    source: "Lucius Annaeus Seneca",
    tags: ["Relationships"]
   },
   {
-    quote: "\"Love is composed of a single soul inhabiting two bodies.\"",
+    quote: "Love is composed of a single soul inhabiting two bodies.",
     source: "Aristotle",
     tags: ["Relationships"]
   },
   {
-    quote: "\"Allah knows I have enough marriages to arrange already\"",
+    quote: "Allah knows I have enough marriages to arrange already",
     source: "Zehrunisa Husain",
     tags: ["Culture"]
   }
 ]
+console.log(quotes.toString());
 
 
 
@@ -56,9 +57,17 @@ let quotes = [
    - Create a variable to store a random number 
    - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
-
-
-
+let str = "";
+function getRandomQuote(){
+  randnum = Math.random() * quotes.length;
+  //checks to see if it is a different quote from current one
+  while(Math.floor(randnum) == str){
+    randnum = Math.random() * quotes.length;
+  }
+  //sets current quote to check when getting a new quote
+  str = quotes[Math.floor(randnum)];
+  return quotes[Math.floor(randnum)];
+}
 
 /***
   Create the `printQuote` function to: 
@@ -72,8 +81,18 @@ let quotes = [
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
-
-
+function printQuote(){
+  let quote = getRandomQuote();
+  let htmlstring = "";
+  htmlstring += `<p class="quote">${quote["quote"]}<\p><p class = "source">${quote["source"]}`;
+  if(quote.year != null){
+    htmlstring += `<span class="year">${quote["year"]}, <\span>`;
+  }
+  htmlstring+= `<p class = "tags">${quote["tags"]}</p>`;
+  htmlstring+= '</p>';
+  document.getElementById("quote-box").innerHTML = htmlstring;
+}
+console.log(printQuote());
 
 /***
   When the "Show another quote" button is clicked, the event listener 
