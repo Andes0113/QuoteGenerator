@@ -13,6 +13,41 @@ Adapted form Treehouse FSJS Techdegree
   Use console.log() to log your array of quotes to the console.
 ***/
 
+//Array of all quotes
+let quotes = [
+  {
+    quote: "\"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.\"",
+    source: "\"Helen Keller\"",
+    year: 1891,
+    tags: ["Beauty", "Emotion"]
+  },
+  {
+    quote: "\"Let us not seek the Republican answer or the Democratic answer, but the right answer. Let us not seek to fix the blame for the past. Let us accept our own responsibility for the future.\"",
+    source: "John F. Kennedy",
+    year: 1960,
+    tags: ["Politics"]
+  },
+  {
+    quote: "\"It is during our darkest moments that we must focus to see the light.\"",
+    source: "Aristotle",
+    tags: ["Motivation"]
+  },
+  {
+   quote: "\"One of the most beautiful qualities of true friendship is to understand and to be understood.\"",
+   source: "Lucius Annaeus Seneca",
+   tags: ["Relationships"]
+  },
+  {
+    quote: "\"Love is composed of a single soul inhabiting two bodies.\"",
+    source: "Aristotle",
+    tags: ["Relationships"]
+  },
+  {
+    quote: "\"Allah knows I have enough marriages to arrange already\"",
+    source: "Zehrunisa Husain",
+    tags: ["Culture"]
+  }
+]
 
 
 
