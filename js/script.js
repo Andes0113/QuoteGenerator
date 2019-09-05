@@ -3,29 +3,20 @@ Project 1 - A Random Quote Generator
 Adapted form Treehouse FSJS Techdegree
 ******************************************/
 
-
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
-
 //Array of all quotes
+//Tags include Emotion, History, Motivation, Relationships, and Culture
 let quotes = [
   {
     quote: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
     source: "Helen Keller",
     year: 1891,
-    tags: ["Beauty", "Emotion"]
+    tags: ["Emotion"]
   },
   {
-    quote: "Let us not seek the Republican answer or the Democratic answer, but the right answer. Let us not seek to fix the blame for the past. Let us accept our own responsibility for the future.\"",
-    source: "John F. Kennedy",
-    year: 1960,
-    tags: ["Politics"]
+    quote: "To live under the American Constitution is the greatest political privilege that was ever accorded to the human race.",
+    source: "Calvin Coolidge",
+    year: 1924,
+    tags: ["History"]
   },
   {
     quote: "It is during our darkest moments that we must focus to see the light.",
@@ -43,54 +34,63 @@ let quotes = [
     tags: ["Relationships"]
   },
   {
-    quote: "Allah knows I have enough marriages to arrange already",
+    quote: "Now I will have to arrange another marriage! Allah knows I have enough marriages to do already.",
     source: "Zehrunisa Husain",
     tags: ["Culture"]
+  },
+  {
+    quote: "Our culture is more shaped by the arts and humanities than it often is by politics.",
+    source: "Jim Leach",
+    tags: ["Culture"]
+  },
+  {
+    quote: "You have died of dysentery",
+    source: "Oregon Trail",
+    year: 1971,
+    tags: ["History"]
   }
-]
+];
 console.log(quotes.toString());
-
-
-
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Use the random number to `return` a random quote object from the `quotes` array.
-***/
+let tagged = "";
 let str = "";
+
+
+//getrandomquote
 function getRandomQuote(){
   randnum = Math.random() * quotes.length;
   //checks to see if it is a different quote from current one
   while(Math.floor(randnum) == str){
     randnum = Math.random() * quotes.length;
   }
+  if(tagged != "" && quotes["tags"] != tagged){
+    randnum = Math.random()
+  }
   //sets current quote to check when getting a new quote
   str = quotes[Math.floor(randnum)];
   return quotes[Math.floor(randnum)];
 }
 
-/***
-  Create the `printQuote` function to: 
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML markup in the index.html file AND the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
-
+//printquote function
 function printQuote(){
   let quote = getRandomQuote();
   let htmlstring = "";
-  htmlstring += `<p class="quote">${quote["quote"]}<\p><p class = "source">${quote["source"]}`;
+  //adds quote and source to string
+  htmlstring += `<p class="quote">${quote["quote"]}</p><p class = "source">${quote["source"]}`;
+  //year
   if(quote.year != null){
-    htmlstring += `<span class="year">${quote["year"]}, <\span>`;
+    htmlstring += `<span class="year">${quote["year"]} </span>`;
   }
+  //tags
   htmlstring+= `<p class = "tags">${quote["tags"]}</p>`;
   htmlstring+= '</p>';
+  //applying changes
   document.getElementById("quote-box").innerHTML = htmlstring;
+  //setting random color every time button clicked
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+  document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 console.log(printQuote());
 
@@ -102,6 +102,5 @@ console.log(printQuote());
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
