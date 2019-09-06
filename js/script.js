@@ -51,7 +51,6 @@ let quotes = [
   }
 ];
 console.log(quotes.toString());
-let tagged = "";
 let str = "";
 
 
@@ -61,9 +60,6 @@ function getRandomQuote(){
   //checks to see if it is a different quote from current one
   while(Math.floor(randnum) == str){
     randnum = Math.random() * quotes.length;
-  }
-  if(tagged != "" && quotes["tags"] != tagged){
-    randnum = Math.random()
   }
   //sets current quote to check when getting a new quote
   str = quotes[Math.floor(randnum)];
@@ -93,7 +89,7 @@ function printQuote(){
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 console.log(printQuote());
-
+setInterval(printQuote, 8000);
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
