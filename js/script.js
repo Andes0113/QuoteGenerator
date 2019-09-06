@@ -52,17 +52,17 @@ let quotes = [
 ];
 console.log(quotes.toString());
 let lastq = -1;
-
+let randnum = 0;
 
 //getrandomquote
 function getRandomQuote(){
+  lastq = randnum;
   randnum = Math.random() * quotes.length;
   //checks to see if it is a different quote from current one
   while(Math.floor(randnum) === lastq){
     randnum = Math.random() * quotes.length;
   }
   //sets current quote to check when getting a new quote
-  lastq = Math.floor(randnum);
   return quotes[Math.floor(randnum)];
 }
 
@@ -91,7 +91,8 @@ function printQuote(){
 
 }
 function printLast(){
-  let quote = quotes[lastq];
+  let quote = quotes[Math.floor(lastq)];
+  console.log(quote);
   document.getElementById("quote-box").innerHTML = "";
   let htmlstring2 = "";
   //adds quote and source to string
@@ -116,6 +117,6 @@ setInterval(printQuote, 8000);
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-document.getElementById('loadQuote').addEventListener("click", printLast, false);
+document.getElementById('lastQuote').addEventListener("click", printLast, false);
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
