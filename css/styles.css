@@ -92,6 +92,28 @@ body {
 #loadQuote:focus {
   outline: none;
 }
+#lastQuote {
+  margin-top:3em;
+  position: fixed;
+  width: 12em;
+  display: inline-block;
+  left: 50%;
+  margin-left: -6em;
+  bottom: 50px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: blue;
+  padding: 15px 0;
+  transition: .5s ;
+}
+#lastQuote:hover {
+  background-color: rgba(255,255,255,.25);
+}
+
+#lastQuote:focus {
+  outline: none;
+}
 
 @media (min-width: 420px) {
   .quote {

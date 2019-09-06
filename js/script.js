@@ -51,18 +51,18 @@ let quotes = [
   }
 ];
 console.log(quotes.toString());
-let str = "";
+let lastq = -1;
 
 
 //getrandomquote
 function getRandomQuote(){
   randnum = Math.random() * quotes.length;
   //checks to see if it is a different quote from current one
-  while(Math.floor(randnum) == str){
+  while(Math.floor(randnum) === lastq){
     randnum = Math.random() * quotes.length;
   }
   //sets current quote to check when getting a new quote
-  str = quotes[Math.floor(randnum)];
+  lastq = Math.floor(randnum);
   return quotes[Math.floor(randnum)];
 }
 
@@ -87,6 +87,24 @@ function printQuote(){
   let b = Math.floor(Math.random() * 256);
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+  document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+
+}
+function printLast(){
+  let quote = quotes[lastq];
+  document.getElementById("quote-box").innerHTML = "";
+  let htmlstring2 = "";
+  //adds quote and source to string
+  htmlstring2 += `<p class="quote">${quote["quote"]}</p><p class = "source">${quote["source"]}`;
+  //year
+  if(quote.year != null){
+    htmlstring2 += `<span class="year">${quote["year"]} </span>`;
+  }
+  //tags
+  htmlstring2+= `<p class = "tags">${quote["tags"]}</p>`;
+  htmlstring2+= '</p>';
+  //applying changes
+  document.getElementById("quote-box").innerHTML = htmlstring2;
 }
 console.log(printQuote());
 setInterval(printQuote, 8000);
@@ -98,5 +116,6 @@ setInterval(printQuote, 8000);
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printLast, false);
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
