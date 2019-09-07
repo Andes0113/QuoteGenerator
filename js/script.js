@@ -56,7 +56,7 @@ let randnum = 0;
 
 //getrandomquote
 function getRandomQuote(){
-  lastq = randnum;
+  lastq = Math.floor(randnum);
   randnum = Math.random() * quotes.length;
   //checks to see if it is a different quote from current one
   while(Math.floor(randnum) === lastq){
@@ -91,7 +91,7 @@ function printQuote(){
 
 }
 function printLast(){
-  let quote = quotes[Math.floor(lastq)];
+  let quote = quotes[lastq];
   console.log(quote);
   document.getElementById("quote-box").innerHTML = "";
   let htmlstring2 = "";
