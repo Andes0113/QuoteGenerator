@@ -59,7 +59,7 @@ function getRandomQuote(){
   lastq.push(Math.floor(randnum));
   randnum = Math.random() * quotes.length;
   //checks to see if it is a different quote from current one
-  while(Math.floor(randnum) === lastq){
+  while(Math.floor(randnum) === lastq[lastq.length-1]){
     randnum = Math.random() * quotes.length;
   }
   //sets current quote to check when getting a new quote
