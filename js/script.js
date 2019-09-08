@@ -82,9 +82,9 @@ function printQuote(){
   //applying changes
   document.getElementById("quote-box").innerHTML = htmlstring;
   //setting random color every time button clicked
-  let r = Math.floor(Math.random() * 256);
-  let g = Math.floor(Math.random() * 256);
-  let b = Math.floor(Math.random() * 256);
+  let r = Math.floor(Math.random() * 156);
+  let g = Math.floor(Math.random() * 156);
+  let b = Math.floor(Math.random() * 156);
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
