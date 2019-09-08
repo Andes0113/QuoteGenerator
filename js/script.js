@@ -51,12 +51,12 @@ let quotes = [
   }
 ];
 console.log(quotes.toString());
-let lastq = -1;
+let lastq = [0];
 let randnum = 0;
 
 //getrandomquote
 function getRandomQuote(){
-  lastq = Math.floor(randnum);
+  lastq.push(Math.floor(randnum));
   randnum = Math.random() * quotes.length;
   //checks to see if it is a different quote from current one
   while(Math.floor(randnum) === lastq){
@@ -91,7 +91,13 @@ function printQuote(){
 
 }
 function printLast(){
-  let quote = quotes[lastq];
+  let quote = quotes[0];
+  if(lastq.length > 0){
+    quote = quotes[lastq.pop()];
+  }
+  else{
+    return 0;
+  }
   console.log(quote);
   document.getElementById("quote-box").innerHTML = "";
   let htmlstring2 = "";
@@ -106,6 +112,13 @@ function printLast(){
   htmlstring2+= '</p>';
   //applying changes
   document.getElementById("quote-box").innerHTML = htmlstring2;
+  //random color
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+  document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+  document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 console.log(printQuote());
 setInterval(printQuote, 8000);
