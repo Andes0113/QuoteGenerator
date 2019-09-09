@@ -78,6 +78,7 @@ function printQuote(){
   }
   //tags
   htmlstring+= `<p class = "tags">${quote["tags"]}</p>`;
+
   htmlstring+= '</p>';
   //applying changes
   document.getElementById("quote-box").innerHTML = htmlstring;
@@ -85,10 +86,12 @@ function printQuote(){
   let r = Math.floor(Math.random() * 156);
   let g = Math.floor(Math.random() * 156);
   let b = Math.floor(Math.random() * 156);
+  //setting the css
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
+//prints the last quote
 function printLast(){
   let quote = quotes[0];
   if(lastq.length > 0){
@@ -120,6 +123,7 @@ function printLast(){
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 console.log(printQuote());
+//timer for changing quote
 setInterval(printQuote, 10000);
 /***
   When the "Show another quote" button is clicked, the event listener 
