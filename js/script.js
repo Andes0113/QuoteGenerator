@@ -88,7 +88,6 @@ function printQuote(){
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-
 }
 function printLast(){
   let quote = quotes[0];
@@ -121,7 +120,7 @@ function printLast(){
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 console.log(printQuote());
-setInterval(printQuote, 8000);
+setInterval(printQuote, 10000);
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
