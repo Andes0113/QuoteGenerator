@@ -53,6 +53,8 @@ let quotes = [
 console.log(quotes.toString());
 let lastq = [];
 let randnum = 0;
+let i = setInterval(printQuote, 10000);
+
 
 //getrandomquote
 function getRandomQuote(){
@@ -88,6 +90,9 @@ function printQuote(){
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+  //reset interval
+  clearInterval(i);
+  i = setInterval(printQuote, 10000);
 }
 //prints the last quote
 function printLast(){
@@ -119,10 +124,12 @@ function printLast(){
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("loadQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
   document.getElementById("lastQuote").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+  //reset interval
+  clearInterval(i);
+  i = setInterval(printQuote, 10000);
 }
 console.log(printQuote());
 //timer for changing quote
-setInterval(printQuote, 10000);
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
