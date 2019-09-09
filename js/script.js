@@ -51,7 +51,7 @@ let quotes = [
   }
 ];
 console.log(quotes.toString());
-let lastq = [0];
+let lastq = [];
 let randnum = 0;
 
 //getrandomquote
@@ -77,9 +77,7 @@ function printQuote(){
     htmlstring += `<span class="year">${quote["year"]} </span>`;
   }
   //tags
-  htmlstring+= `<p class = "tags">${quote["tags"]}</p>`;
-
-  htmlstring+= '</p>';
+  htmlstring+= `<p class = "tags">${quote["tags"]}</p></p>`;
   //applying changes
   document.getElementById("quote-box").innerHTML = htmlstring;
   //setting random color every time button clicked
