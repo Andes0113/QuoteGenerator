@@ -44,7 +44,7 @@ let quotes = [
     tags: ["Computer Science"]
   },
   {
-    quote: "Segmentation Fault (core Dumped)",
+    quote: "Segmentation fault (core dumped)",
     source: "C",
     tags: ["Computer Science"]
   }
