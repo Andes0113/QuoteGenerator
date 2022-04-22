@@ -13,12 +13,6 @@ let quotes = [
     tags: ["Emotion"]
   },
   {
-    quote: "To live under the American Constitution is the greatest political privilege that was ever accorded to the human race.",
-    source: "Calvin Coolidge",
-    year: 1924,
-    tags: ["History"]
-  },
-  {
     quote: "It is during our darkest moments that we must focus to see the light.",
     source: "Aristotle",
     tags: ["Motivation"]
@@ -34,11 +28,6 @@ let quotes = [
     tags: ["Relationships"]
   },
   {
-    quote: "Now I will have to arrange another marriage! Allah knows I have enough marriages to do already.",
-    source: "Zehrunisa Husain",
-    tags: ["Culture"]
-  },
-  {
     quote: "Our culture is more shaped by the arts and humanities than it often is by politics.",
     source: "Jim Leach",
     tags: ["Culture"]
@@ -48,6 +37,16 @@ let quotes = [
     source: "Oregon Trail",
     year: 1971,
     tags: ["History"]
+  },
+  {
+    quote: "Those who can imagine anything, can create the impossible.",
+    source: "Alan Turing",
+    tags: ["Computer Science"]
+  },
+  {
+    quote: "Segmentation Fault (core Dumped)",
+    source: "C",
+    tags: ["Computer Science"]
   }
 ];
 console.log(quotes.toString());
